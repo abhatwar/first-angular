@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <div class="container">
+            
+        </div>
+       
+            <form>
+                <h2>Miri Shop Registration Form</h2>
+                <div class="input-group">
+                    <label for="shopname">Shop Name:</label>
+                    <div>
+                        <input type="text" class="form-control" placeholder="Enter your shop name" #shopname (change)="shopnameValue(shopname.value)">
+    
+                    </div>
+                </div>
+                <div class="input-group">
+                    <label for="shopownername">Shop Owner Name:</label>
+                    <div>
+                        <input type="text" class="form-control" placeholder="Enter shop owner name" #shopownername
+                            (change)="shopownernameValue(shopownername.value)">
+    
+                    </div>
+                </div>
+                <div class="input-group">
+                    <label for="address" >Address:</label>
+                    <div>
+                        <input type="text" class="form-control" placeholder="Enter a address" #address (change)="addressValue(address.value)">
+    
+                    </div>
+                </div>
+                <div class="input-group">
+                    <label for="mobile" >Mobile:</label>
+                    <div>
+                        <input type="number" required="required" class="form-control" placeholder="Enter a your mobile number (10 digits)" #mobile
+                            (change)="mobilenumberValue(mobile.value)">
+    
+                    </div>
+                </div>
+                <div class="input-group">
+                    <label for="state" >State</label>
+                    <div>
+                        <select class="form-select" #state (change)="selectedstateValue(state.value)">
+                            <!-- <option value=" "></option> -->
+                            <option *ngFor="let state of stateList" [value]="state.state_code">{{state.state_name}}</option>
+    
+                        </select>
+                    </div>
+    
+                </div>
+    
+                <div class="input-group">
+                    <label for="district" >District</label>
+                    <div>
+                        <select required="required" class="form-select" #district
+                            (change)="selectedDistrictValue(district.value)">
+                            <!-- <option value=" ">--district--</option> -->
+                            <option *ngFor="let district of districtList" [value]="district.district_id">
+                                {{district.district_name}}</option>
+    
+                        </select>
+                    </div>
+                </div>
+    
+                <div class="input-group">
+                    <label for="vatika" >Vatika</label>
+                    <div>
+                        <select required="required" class="form-select" #vatika
+                            (change)="selectedvatikaValue(vatika.value)">
+                            <option value=" ">--vatika--</option>
+                            <option *ngFor="let vatika of vatikaList" [value]="vatika.VatikaId">{{vatika.Vatikaname}}
+                            </option>
+    
+                        </select>
+                    </div>
+                </div>
+    
+                <div class="form-group">
+                    <label for="StartDate" >Shop Start Date:</label>
+                    <div>
+                        <input type="date" class="form-control" #StartDate (change)="shopstartdateValue(StartDate.value)">
+                    </div>
+                </div>
+    
+                <div class="submitbutton">
+                    <button (click)="submit(
+                                             shopname.value,
+                                             shopownername.value,
+                                             address.value,
+                                             mobile.value,                                                                                  
+                                             vatika.value,
+                                             StartDate.value
+                   )" type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </form>
+        </div>
+    
+</body>
+</html>
+
+
